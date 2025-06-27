@@ -1,0 +1,88 @@
+<view wx:if="{{isLoad===null}}" style="margin-top:200rpx" class="margin-top load notexist text-l load-project"></view>
+<view wx:if="{{isLoad===false}}" style="margin-top:200rpx" class="margin-top load loading text-l load-project"></view>
+
+<block wx:if="{{isLoad}}">
+
+	<cmpt-swiper style="position: relative;" mode="aspectFill" indicatorActiveColor="#FF6E00" height="520" images="{{product.PRODUCT_OBJ.cover}}" />
+	<view class="main">
+		<view class="detail margin-top-xs  shadow-project">
+			<view class="detail-line">
+				<view class="line1">
+					<view class="left">{{product.PRODUCT_TITLE}}</view>
+					<view class="right"><text class="r1">￥{{product.PRODUCT_OBJ.price}}</text></view>
+				</view>
+				<view class="tag-list">
+					<text wx:for="{{product.PRODUCT_OBJ.tag}}" wx:key="k" wx:for-item="itm" class="tag-item">{{itm}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="detail margin-top  shadow-project">
+			<view class="list3">
+				<view class="item">
+					<text class="left">类型：</text>
+					<text class="right">{{product.cate.CATE_OBJ.cate}}</text>
+				</view>
+				<view class="item">
+					<text class="left">户型：</text>
+					<text class="right">{{product.PRODUCT_OBJ.type}}</text>
+				</view>
+				<view class="item">
+					<text class="left">面积：</text>
+					<text class="right">{{product.PRODUCT_OBJ.mianji}}㎡</text>
+				</view>
+				<view class="item">
+					<text class="left">装修：</text>
+					<text class="right">{{product.PRODUCT_OBJ.zhuangxiu}}</text>
+				</view>
+				<view class="item">
+					<text class="left">楼层：</text>
+					<text class="right">{{product.PRODUCT_OBJ.louceng}}</text>
+				</view>
+				<view class="item">
+					<text class="left">区域：</text>
+					<text class="right">{{product.cate.CATE_OBJ.area}}</text>
+				</view>
+				<view class="item">
+					<text class="left">地铁：</text>
+					<text class="right text-cut">{{product.cate.CATE_OBJ.line||'无'}}</text>
+				</view>
+				<view class="item">
+					<text class="left">地铁站：</text>
+					<text class="right text-cut">{{product.cate.CATE_OBJ.station||'无'}}</text>
+				</view>
+			</view>
+			<view class="cate" bind:tap="url" data-url="../../cate/detail/cate_detail?id={{product.PRODUCT_CATE_ID}}">
+				<view class="left">
+					<view class="line1">{{product.cate.CATE_TITLE}}</view>
+					<view class="line2"><text class="icon-location text-grey"></text>{{product.cate.CATE_ADDRESS_DETAIL}}</view>
+				</view>
+				<view class="right"><text class="icon-right text-gray"></text></view>
+			</view>
+		</view>
+
+		<view class="detail-title margin-top">简介</view>
+		<view class="detail shadow-project" style="padding:30rpx!important">
+			<text user-select="{{true}}" style="line-height: 1.7;">{{product.PRODUCT_OBJ.content}}</text>
+		</view>
+
+		<view class="detail-title margin-top">房屋设施</view>
+		<view class="detail shadow-project">
+			<view class="list2">
+				<view class="item" wx:for="{{product.PRODUCT_OBJ.sheshi}}" wx:key="k" wx:for-item="itm">
+					<text class="txt">{{itm.title}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view style="height:200rpx"></view>
+
+	<cmpt-detail mode="mode2" homeUrl="../index/product_index" topBtnShow="{{topBtnShow}}" oid="{{product._id}}" cate="{{product.PRODUCT_CATE_NAME}}" title="{{product.PRODUCT_TITLE}}" cover="{{product.PRODUCT_OBJ.cover[0]}}" qr="{{product.PRODUCT_QR}}" desc="查看房源详情" bg="{{skin.PROJECT_COLOR}}">
+		<view class="bottom-line">
+			<view bindtap="url" data-type="copy" data-url="{{product.cate.CATE_OBJ.wx}}" class="clearbtn tel btn-bg">复制微信号</view>
+			<view bindtap="url" data-type="phone" data-url="{{product.cate.CATE_OBJ.tel}}" class="tel margin-left-s  btn-bg">电话咨询</view>
+		</view>
+	</cmpt-detail>
+
+</block>

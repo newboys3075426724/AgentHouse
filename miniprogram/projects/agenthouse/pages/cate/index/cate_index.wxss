@@ -1,0 +1,105 @@
+@import "../../../style/skin.wxss";
+@import "./query.wxss";
+
+.main {
+	width: 100%;
+	padding: 20rpx;
+}  
+
+.list {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 0rpx;
+}
+
+.list .item {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	background-color: #fff;
+	border-radius: 20rpx;
+	padding: 0rpx;
+	margin-bottom: 30rpx;
+	overflow: hidden;
+}
+
+
+.list .item .left {
+	margin-right: 20rpx;
+	position: relative;
+	width: 250rpx;
+	height: 220rpx;
+	box-shadow: 0px 0px 12px 0px rgba(100, 100, 111, 0.2);
+}
+
+.list .item .left .mark {
+	font-size: 20rpx;
+	background-color: var(--projectColorLight);
+	padding: 4rpx 10rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	border-top-left-radius: 20rpx;
+	border-bottom-right-radius: 10rpx;
+	color: #fff;
+}
+
+
+.list .item .left>image {
+	width: inherit;
+	height: inherit;
+	border-top-left-radius: 20rpx;
+	border-bottom-left-radius: 20rpx;
+}
+
+.list .item .right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 14rpx 10rpx 14rpx 0;
+}
+
+.list .item .right .line1 {
+	width: 100%;
+	font-size: 30rpx;
+	font-weight: bold;
+	margin-bottom: 10rpx;
+}
+
+.list .item .right .tag-list {
+	width: 100%;
+	font-size: 22rpx;
+	text-align: left;
+	padding: 6rpx 0;
+}
+
+.list .item .right .tag-list .tag-item {
+	padding: 5rpx 10rpx;
+	border-radius: 10rpx;
+	margin-left: 10rpx;
+	color: #666;
+}
+
+.list .item .right .tag-list .tag-item:first-child {
+	margin-left: 0rpx;
+}
+
+
+.list .item .right .line2 {
+	height: 60rpx;
+	line-height: 60rpx;
+	width: 100%;
+	font-size: 24rpx;
+}
+
+.list .item .right .line3 {
+	font-size: 26rpx;
+}
+ 

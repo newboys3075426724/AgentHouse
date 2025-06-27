@@ -1,0 +1,57 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l load-project" style="margin-top:300rpx;"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project" style="margin-top:300rpx;"></view>
+
+<block wx:if="{{isLoad}}">
+	<view class="main">
+
+		<!--属性begin-->
+		<view class="profile">
+			<view class="inner">
+				<view class="line1">
+					<view class="left">
+						<text class="name">{{article.ARTICLE_TITLE}}</text>
+						<view class="level bg-orange light">{{article.ARTICLE_OBJ.level}}星</view>
+					</view>
+					<image bind:tap="url" data-type="img" data-url="{{article.ARTICLE_OBJ.cover[0]}}" class="shadow loading right" lazy-load="{{true}}" mode="aspectFill" src="{{article.ARTICLE_OBJ.cover[0]}}" />
+
+				</view>
+
+				<view class="line2">
+					<text>{{article.ARTICLE_OBJ.area}}</text>
+					<text class="padding-left-xs padding-right-xs">-</text>
+					<text>{{article.ARTICLE_OBJ.store}}</text>
+				</view>
+				<view class="line3">
+					<text wx:for="{{article.ARTICLE_OBJ.tag}}" wx:key="k">{{item.title}}</text>
+				</view>
+			</view>
+		</view>
+		<!--属性END-->
+
+
+		<view class="user-detail margin-top">
+			<view class="item">
+				<view class="title"><text class="icon-titles text-yellow"></text>自我介绍</view>
+				<view class="desc">{{article.ARTICLE_OBJ.desc}}</view>
+			</view>
+		</view>
+
+
+
+
+		<view style="height:180rpx;"></view>
+	</view>
+
+
+	<cmpt-detail mode="mode2" homeUrl="../index/article_index" topBtnShow="{{topBtnShow}}" oid="{{article._id}}" cate="中介" title="{{article.ARTICLE_TITLE}}" cover="{{article.ARTICLE_OBJ.cover[0]}}" qr="{{article.ARTICLE_QR}}" desc="查看详情" bg="{{skin.PROJECT_COLOR}}">
+		<view class="bottom-line">
+			<view bindtap="url" data-type="copy" data-url="{{article.ARTICLE_OBJ.wx}}" class="clearbtn tel bg-orange btn-bg">复制微信号</view>
+			<view bindtap="url" data-type="phone" data-url="{{article.ARTICLE_OBJ.tel}}" class="tel margin-left-s  btn-bg">电话咨询</view>
+		</view>
+	</cmpt-detail>
+
+
+
+
+
+</block>

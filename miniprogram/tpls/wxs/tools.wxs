@@ -1,0 +1,45 @@
+ function indexOf(data, key) {
+ 	return data.indexOf(key);
+ }
+
+ function includes(data, key) {
+ 	return data.indexOf(key) > -1 ? true : false;
+ }
+
+function money(priceInFen, showSymbol = true) {
+	// 将分转换为元
+	var priceInYuan = priceInFen / 100;
+	// 保留两位小数
+	var formattedPrice = priceInYuan.toFixed(2);
+	// 根据参数决定是否加上货币符号
+	if (showSymbol) {
+		return "￥" + formattedPrice;
+	} else {
+		return formattedPrice;
+	}
+}
+
+ function split(str, chr) {
+ 	var arr = str.split(chr);
+ 	if (arr.length == 0) return [];
+
+ 	return arr;
+ } 
+
+function number(str) {
+	return Number(str);
+}
+
+function floor(str) {
+	return Math.floor(str);
+}
+
+ module.exports = {
+ 	split: split,
+ 	indexOf: indexOf,
+	includes: includes,
+	number: number,
+	floor: floor,
+	money: money
+ };
+ module.exports.msg = "hello tools";

@@ -1,0 +1,150 @@
+.query-box {
+	display: flex;
+}
+
+.query-box .query-btn {
+	background-color: var(--projectColor);
+	color: #fff;
+	font-size: 26rpx;
+	padding: 10rpx 20rpx;
+	margin-right: 10rpx;
+	border-radius: 10rpx;
+}
+
+/*modal*/
+.modal .dialog {
+	border-radius: 0rpx;
+	width: 100%;
+}
+
+.modal .dialog .query {
+	width: 100%;
+	padding: 0rpx 20rpx;
+}
+
+.modal .dialog .query .title {
+	width: 100%;
+	text-align: left;
+	padding: 0rpx 14rpx;
+	font-size: 30rpx;
+	font-weight: bold;
+	margin-top: 30rpx;
+	margin-bottom: 10rpx;
+}
+
+
+.modal .dialog .query .tag-list {
+	width: 100%;
+	font-size: 24rpx;
+	text-align: left;
+	padding: 2rpx 10rpx;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal .dialog .query .tag-list .tag-item {
+	padding: 8rpx 26rpx;
+	border-radius: 6rpx;
+	margin-left: 12rpx;
+	color: #666;
+	margin-bottom: 14rpx;
+	background-color: #eee;
+}
+
+.modal .dialog .query .tag-list.tag1>text .bg-green {
+	background-color: var(--green) !important
+}
+
+.modal .dialog .query .tag-list .tag-item:first-child {
+	margin-left: 0rpx;
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+1) {
+	color: var(--red)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+2) {
+	color: var(--purple)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+3) {
+	color: var(--blue)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+4) {
+	color: var(--brown)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+5) {
+	color: var(--pink)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+6) {
+	color: var(--yellow)
+}
+
+.modal .dialog .query .tag-list.tag1 .tag-item:nth-child(8n+7) {
+	color: var(--orange)
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+1) {
+	background-color: #d5ede0
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+2) {
+	background-color: #ede1d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+3) {
+	background-color: #d5eced
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+4) {
+	background-color: #edd5d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+5) {
+	background-color: #e8d5ed
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+6) {
+	background-color: #ede1d5
+}
+
+.tag-list.tag2 .tag-item:nth-child(8n+7) {
+	background-color: #d5edeb
+}
+
+
+.modal .dialog .price-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0rpx 50rpx;
+}
+
+.modal .dialog .price-container .title {
+	font-size: 32rpx;
+}
+
+.modal .dialog .price-container .slider {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.modal .dialog .price-container .hint {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 30rpx;
+}
+
+.modal .dialog>.bar:first-child .action {
+	min-width: 60rpx;
+	min-height: 60rpx;
+}
+
+.action .btn {
+	padding: 30rpx 80rpx;
+	font-size: 30rpx;
+}

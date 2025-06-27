@@ -1,0 +1,100 @@
+<view wx:if="{{isLoad===null}}" style="margin-top:200rpx" class="margin-top load notexist text-l load-project"></view>
+<view wx:if="{{isLoad===false}}" style="margin-top:200rpx" class="margin-top load loading text-l load-project"></view>
+
+<block wx:if="{{isLoad}}">
+
+	<cmpt-swiper style="position: relative;" mode="aspectFill" indicatorActiveColor="#FF6E00" height="520" images="{{cate.CATE_OBJ.cover}}" />
+	<wxs src="../../../../../tpls/wxs/tools.wxs" module="tools" />
+	<view class="main">
+		<view class="detail margin-top-xs shadow-project">
+			<view class="detail-line">
+				<view class="line1">
+					<view class="left text-bold">{{cate.CATE_TITLE}}</view>
+					<view class="right"> </view>
+				</view>
+				<view class="line1 margin-top-s">
+					<view class="left"><text class="r1">¥{{cate.CATE_OBJ.rentmin}}~{{cate.CATE_OBJ.rentmax}}元/月</text></view>
+					<view class="right"></view>
+				</view>
+				<view class="tag-list tag1">   
+
+					<text wx:for="{{cate.CATE_OBJ.tag}}" wx:key="k" wx:for-item="itm" class="tag-item tag-item{{tools.indexOf(allTag,itm)}}">{{itm}}</text>
+ 
+				</view>
+			</view>
+
+		</view>
+
+		<view class="detail margin-top  shadow-project">
+			<view class="list3">
+				<view class="item">
+					<text class="left">类型：</text>
+					<text class="right">{{cate.CATE_OBJ.cate}}</text>
+				</view>
+				<view class="item">
+					<text class="left">区域：</text>
+					<text class="right">{{cate.CATE_OBJ.area}}</text>
+				</view>
+				<view class="item">
+					<text class="left">户型：</text>
+					<text class="right content-cut-one">{{cate.CATE_OBJ.type}}</text>
+				</view>
+
+				<view class="item">
+					<text class="left">地铁：</text>
+					<text class="right text-cut">{{cate.CATE_OBJ.line||'无'}}</text>
+				</view>
+				<view class="item">
+					<text class="left">地铁站：</text>
+					<text class="right text-cut">{{cate.CATE_OBJ.station||'无'}}</text>
+				</view>
+			</view>
+			 
+		</view>
+
+		<view class="detail-title margin-top">公共设施</view>
+		<view class="detail shadow-project">
+			<view class="list2">
+				<view class="item" wx:for="{{cate.CATE_OBJ.sheshi}}" wx:key="k" wx:for-item="itm">
+					<text class="txt">{{itm.title}}</text>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="detail-title margin-top">介绍</view>
+		<view class="detail shadow-project">
+			<text class="desc">{{cate.CATE_OBJ.content}}</text>
+		</view>
+
+		<view class="detail-title margin-top">地址</view>
+		<view class="detail shadow-project" style="padding:0">
+			<map class="map" enable-zoom="{{false}}" bindmarkertap="bindMapTap" bindtap="bindMapTap" enable-poi longitude="{{cate.CATE_ADDRESS.longitude}}" latitude="{{cate.CATE_ADDRESS.latitude}}" markers="{{markers}}" scale="{{15}}" show-location></map>
+		</view>
+
+		<view class="detail-title margin-top">在租房型</view>
+		<view class="list">
+			<view class="item shadow-project" wx:for="{{cate.list}}" wx:key="key" bindtap="url" data-url="../../product/detail/product_detail?id={{item._id}}">
+				<image class="loading" mode="aspectFill" lazy-load="{{true}}" src="{{item.PRODUCT_OBJ.cover[0]}}" />
+				<view class="right">
+					<view class="line1 "> {{item.PRODUCT_TITLE}} </view>
+					<view class="line3 text-red">{{item.PRODUCT_OBJ.mianji}}㎡</view>
+					<view class="tag-list">
+						<text class="tag-item" wx:for="{{item.PRODUCT_OBJ.tag}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" wx:if="{{idx<2}}">{{itm}}</text>
+					</view>
+					<view class="line3 content-cut-one text-red margin-top" style="font-size: 28rpx;font-weight: bold;">￥{{item.PRODUCT_OBJ.price}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view style="height:200rpx"></view>
+
+	<cmpt-detail mode="mode2" homeUrl="../index/cate_index" topBtnShow="{{topBtnShow}}" oid="{{cate._id}}" cate="小区" title="{{cate.CATE_TITLE}}" cover="{{cate.CATE_OBJ.cover[0]}}" qr="{{cate.CATE_QR}}" desc="查看详情" bg="{{skin.PROJECT_COLOR}}">
+		<view class="bottom-line">
+			<view bindtap="url" data-type="copy" data-url="{{cate.CATE_OBJ.wx}}" class="clearbtn tel bg-orange btn-bg">复制微信号</view>
+			<view bindtap="url" data-type="phone" data-url="{{cate.CATE_OBJ.tel}}" class="tel margin-left-s  btn-bg">电话咨询</view>
+		</view>
+	</cmpt-detail>
+
+</block>

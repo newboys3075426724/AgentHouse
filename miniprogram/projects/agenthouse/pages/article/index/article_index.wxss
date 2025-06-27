@@ -1,0 +1,125 @@
+@import "../../../style/skin.wxss";
+
+.main {
+	padding: 0rpx;
+}
+
+
+
+.list {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 30rpx;
+}
+
+.list .item {
+	position: relative;
+	width: 100%;
+	display: flex;
+	background-color: #fff;
+	padding: 6rpx 20rpx 6rpx 0;
+	border-radius: 10rpx;
+	margin-bottom: 80rpx;
+	position: relative;
+	border-bottom-left-radius: 60rpx;
+
+	height: 150rpx;
+}
+
+.list .item .left {
+	width: 150rpx;
+	height: 190rpx;
+	margin-right: 20rpx;
+	border-top-left-radius: 60rpx;
+	border-top-right-radius: 20rpx;
+	border-bottom-left-radius: 60rpx;
+	border-bottom-right-radius: 60rpx;
+	margin-top: -40rpx;
+	z-index: 9;
+}
+
+.list .item .left image {
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+}
+
+.list .item:nth-child(4n+1) .left {
+	box-shadow: 4px 2px 0px 0px #e9c9b1;
+}
+
+.list .item:nth-child(4n+2) .left {
+	box-shadow: 4px 2px 0px 0px #cad4ba;
+}
+
+.list .item:nth-child(4n+3) .left {
+	box-shadow: 4px 2px 0px 0px #c6d9f0;
+}
+
+.list .item:nth-child(4n) .left {
+	box-shadow: 4px 2px 0px 0px #ddd8c3;
+}
+
+.list .item .right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 10rpx;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+.list .item .right .name {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.list .item .right .name .t1 {
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333;
+}
+
+.list .item .right .name .t2 {
+	flex: 1;
+	font-size: 24rpx;
+	color: #777;
+	margin-left: 10rpx;
+}
+
+.list .item .right .line1 {
+	width: 100%;
+	color: #999;
+	font-size: 24rpx;
+	padding: 2rpx 0;
+	display: flex;
+	align-items: center;
+}
+
+.list .item .right .line1 view {
+	margin-right: 12rpx;
+}
+
+.list .item .right .line1 view>text {
+	margin-right: 2rpx;
+}
+
+.list .item .right .line2 {
+	width: 100%;
+	padding: 0rpx 0;
+	display: flex;
+	align-items: center;
+	font-size: 20rpx;
+	opacity: .6;
+}
+
+.list .item .right .line2>text {
+	margin-right: 2rpx;
+}
+
+.shadow-project {
+	box-shadow: 6rpx 6rpx 20rpx rgba(248, 236, 213, 0.7);
+}

@@ -1,0 +1,151 @@
+@import "../../../style/skin.wxss";
+
+.main {
+	padding: 0;
+}
+
+.profile {
+	width: 100%;
+	margin-top: 30rpx;
+	z-index: 99;
+	position: relative;
+	padding: 0 30rpx;
+}
+
+.profile .inner {
+	width: 100%;
+	min-height: 300rpx;
+	background-color: #ffffff;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 100rpx;
+	border-bottom-left-radius: 20rpx;
+	border-bottom-right-radius: 20rpx;
+	box-shadow: 6rpx 6rpx 8rpx rgba(216, 220, 223, 0.2);
+	padding: 25rpx;
+}
+
+.profile .inner .line1 {
+	width: 100%;
+	padding-bottom: 20rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.profile .inner .line1 .left {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.profile .inner .line1 .left .name {
+	font-size: 38rpx;
+	font-weight: bold;
+}
+
+.profile .inner .line1 .left .level {
+	display: flex;
+	align-items: center;
+	margin-left: 20rpx;
+	font-size: 24rpx;
+	background-color: var(--projectColor);
+	padding: 4rpx 14rpx;
+	border-top-right-radius: 15rpx;
+	border-bottom-left-radius: 15rpx;
+}
+
+.profile .inner .line1 .right {
+	width: 120rpx;
+	height: 120rpx;
+	margin-right: 30rpx;
+	border-radius: 30%;
+}
+
+.profile .inner .line2 {
+	font-size: 26rpx;
+	border-bottom: 2rpx solid #ddd;
+	padding-bottom: 20rpx;
+	color: #666;
+}
+
+.profile .inner .line3 {
+	padding: 25rpx 0;
+	font-size: 28rpx;
+	color: #888;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.profile .inner .line3 text {
+	margin-right: 10rpx;
+	padding: 10rpx 30rpx;
+	background-color: #f2f2f2;
+	border-radius: 10rpx;
+	margin-bottom: 10rpx;
+	font-size: 24rpx;
+}
+
+.user-detail {
+	width: 100%;
+	padding: 0 30rpx 35rpx;
+}
+
+.user-detail .item {
+	width: 100%;
+	background-color: #fff;
+	padding: 25rpx 25rpx 35rpx;
+	border-radius: 20rpx;
+	box-shadow: 6rpx 6rpx 8rpx rgba(216, 220, 223, 0.2);
+}
+
+.user-detail .item .title {
+	font-size: 32rpx;
+	padding: 0rpx 0 20rpx;
+	color: #000;
+}
+
+.user-detail .item .desc {
+	font-size: 26rpx;
+	color: #666;
+	line-height: 1.7;
+}
+
+.bottom-line {
+	height: 140rpx;
+	background-color: #fff;
+	border-radius: 60rpx;
+	display: flex;
+	align-content: space-between;
+	align-items: center;
+	padding: 0 20rpx;
+}
+
+.bottom-line .tel {
+	padding: 20rpx 30rpx;
+	background-color: var(--projectColor);
+	width: 200rpx;
+	border-radius: 50rpx;
+	color: #fff;
+	text-align: center;
+	font-size: 28rpx;
+}
+
+.small-t {
+	font-size: 28rpx;
+	font-weight: normal;
+	margin-left: 3rpx;
+}
+
+.bottom-line {
+	padding: 0
+}
+
+.cmpt-biz-detail-mode2 .inner .slot-inner {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.cmpt-biz-detail-mode2 .inner {
+	padding: 0 !important;
+}

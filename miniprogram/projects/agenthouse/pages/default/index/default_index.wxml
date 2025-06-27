@@ -1,0 +1,160 @@
+<view class="main">
+	<view class="up">
+		<image mode="widthFix" src="../../../images/home.jpg" />
+	</view>
+
+	<view class="menu">
+
+		<view class="inner ">
+
+			<view class="mm">
+				<view bindtap="url" wx:key="key" data-url="../../news/index/news_index?id=1" class="item">
+					<view class="item-inner">
+						<view class="img">
+							<image src="../../../images/menu/1.png" />
+						</view>
+						<view class="title">通知公告</view>
+					</view>
+				</view>
+				<view bindtap="url" wx:key="key" data-url="../../news/index/news_index?id=2" class="item">
+					<view class="item-inner">
+						<view class="img">
+							<image src="../../../images/menu/2.png" />
+						</view>
+						<view class="title">服务内容</view>
+					</view>
+				</view>
+
+				<view bindtap="url" data-type="relaunch" data-url="../../cate/index/cate_index" class="item">
+					<view class="item-inner">
+						<view class="img">
+							<image src="../../../images/menu/3.png" />
+						</view>
+						<view class="title">找小区</view>
+					</view>
+				</view>
+
+				<view bindtap="url" data-type="relaunch" data-url="../../product/index/product_index" class="item">
+					<view class="item-inner">
+						<view class="img">
+							<image src="../../../images/menu/4.png" />
+						</view>
+						<view class="title">找好房</view>
+					</view>
+				</view>
+
+				<view bindtap="url" data-type="relaunch" data-url="../../article/index/article_index" class="item">
+					<view class="item-inner">
+						<view class="img">
+							<image src="../../../images/menu/5.png" />
+						</view>
+						<view class="title">找中介</view>
+					</view>
+				</view>
+
+
+
+			</view>
+
+
+		</view>
+	</view>
+
+	<!-- 金牌中介 begin -->
+	<view class="area">
+		<view class="hot-line" bindtap="url" data-url="../../article/index/article_index">
+			<view class="left">
+				<view class="cir"></view>
+				<text class="tt">金牌中介</text>
+			</view>
+			<view class="right">更多»</view>
+		</view>
+
+		<view wx:if="{{!articleList}}" class="margin-top load loading text-l load-project"></view>
+
+
+	</view>
+
+	<view class="scroll-x">
+		<scroll-view class="scroll-view" scroll-x="true">
+			<view class="product">
+				<!-- 这里放置你的横向滚动内容 -->
+				<view class="scroll-item" wx:for="{{articleList}}" wx:key="index" bind:tap="url" data-url="../../article/detail/article_detail?id={{item._id}}">
+					<image src="{{item.ARTICLE_OBJ.cover[0]}}" lazy-load="true" class="loading shadow-project" mode="aspectFill" />
+					<text class="title text-cut">{{item.ARTICLE_TITLE}}</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 金牌中介 END -->
+
+	<!-- 小区推荐 begin -->
+	<view class="area">
+		<view class="hot-line" bindtap="url" data-url="../../cate/index/cate_index">
+			<view class="left">
+				<view class="cir"></view>
+				<text class="tt">小区推荐</text>
+			</view>
+			<view class="right">更多»</view>
+		</view>
+		<view wx:if="{{!cateList}}" class="margin-top load loading text-l load-project"></view>
+
+	</view>
+
+	<view class="scroll-x">
+		<scroll-view class="scroll-view" scroll-x="true">
+			<view class="activity">
+				<!-- 这里放置你的横向滚动内容 -->
+				<view class="scroll-item" wx:for="{{cateList}}" wx:key="index" bind:tap="url" data-url="../../cate/detail/cate_detail?id={{item._id}}">
+					<image src="{{item.CATE_OBJ.cover[0]}}" class="loading" lazy-load="true" mode="aspectFill" />
+					<text class="title text-cut">{{item.CATE_TITLE}}</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 小区推荐 END -->
+
+	<!--抢手热租begin-->
+	<view class="area">
+		<view class="hot-line" bindtap="url" data-url="../../product/index/product_index?id=1">
+			<view class="left">
+				<view class="cir"></view>
+				<text class="tt">抢手热租</text>
+			</view>
+			<view class="right">更多»</view>
+		</view>
+		<view wx:if="{{!productList}}" class="margin-top load loading text-l load-project"></view>
+
+	</view>
+
+
+	<view class="rent-list margin-top">
+		<view bindtap="url" data-url="../../product/detail/product_detail?id={{item._id}}" class="item shadow-project" wx:for="{{productList}}" wx:key="K">
+			<view class="left">
+				<image class="loading" lazy-load="{{true}}" mode="aspectFill" src="{{item.PRODUCT_OBJ.cover[0]}}" />
+			</view>
+			<view class="right">
+				<view class="link btn-bg">立即联系</view>
+				<view class="name">
+					<text class="t1 content-cut-one">{{item.PRODUCT_TITLE}}</text>
+				</view>
+				<view class="line1">
+					{{item.cate.CATE_OBJ.area}} {{item.PRODUCT_OBJ.type}}
+				</view>
+				<view class="line2">
+					<text class="t1">{{item.PRODUCT_OBJ.price}}</text>
+					<text class="t2">元/月</text>
+				</view>
+			</view>
+
+		</view>
+	</view>
+	<!--抢手热租END-->
+
+	<view style="height: 200rpx;"></view>
+</view>
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'home_index',returnHome:false}}" />
+</block>

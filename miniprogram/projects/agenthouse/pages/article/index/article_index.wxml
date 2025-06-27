@@ -1,0 +1,45 @@
+<cmpt-comm-list pulldownType="{{['modal','modal']}}" type="coach-list" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="article/list" sortMenusDefaultIndex="0" topBottom="50" placeholder="搜索" bind:list="bindCommListCmpt" returnUrl='/pages/coach/index/coach_index'>
+
+	<view slot="searchEnd">
+
+	</view>
+	<!-- List Begin -->
+	<view class="main">
+
+		<view class="list margin-top">
+			<view bindtap="url" data-url="../detail/article_detail?id={{item._id}}" class="item shadow-project" wx:for="{{dataList.list}}" wx:key="K">
+				<view class="left"> 
+					<image class="loading" lazy-load="{{true}}" mode="aspectFill" src="{{item.ARTICLE_OBJ.cover[0]}}" />
+				</view>
+				<view class="right">
+					<view class="name">
+						<text class="t1">{{item.ARTICLE_TITLE}}</text>
+						<text class="t2 content-cut-one">{{item.ARTICLE_OBJ.area}}-{{item.ARTICLE_OBJ.store}}</text>
+					</view>
+					<view class="line1">
+						<view wx:if="{{indx<3}}" wx:for="{{item.ARTICLE_OBJ.tag}}" wx:key="k" wx:for-item="itm" wx:for-index="indx"><text class="icon-roundcheck"></text>{{itm.title}}</view>
+					</view>
+					<view class="line2">
+						<text wx:for="{{item.ARTICLE_OBJ.level}}" wx:key="k" class="icon-favorfill text-yellow"></text>
+						<text wx:for="{{5-item.ARTICLE_OBJ.level}}" wx:key="k" class="icon-favor text-gray"></text>
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+
+	<!-- List END -->
+
+	<!--load begin-->
+	<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+	<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+	<!--load end-->
+
+
+</cmpt-comm-list>
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'article_index',returnHome:false}}" />
+</block>

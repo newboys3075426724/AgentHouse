@@ -1,0 +1,124 @@
+<view wx:if="{{!_params}}" class="margin-top load loading text-l load-project"></view>
+<block wx:else>
+	<wxs src="../../../../../tpls/wxs/tools.wxs" module="tools" />
+	<cmpt-comm-list id="list" pulldownType="{{['modal']}}" type="cate-list1" sortMenusDefaultIndex="0" _params="{{_params}}" search="{{search||''}}" _menus="{{sortMenus}}" _items="{{sortItems}}" route="cate/list" topBottom="120" placeholder="搜索名称，地铁站" bind:list="bindCommListCmpt">
+		<view slot="searchEnd" class="query-box">
+			<!--<button bindtap="bindResetTap" class="btn radius bg-green light text-white margin-right-s">重置</button>-->
+			<view bindtap="bindOpenModalTap" data-box="area" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>{{area[0]||'区域'}}</view>
+			<view bindtap="bindOpenModalTap" data-box="type" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>{{type[0]||'户型'}}</view>
+			<view bindtap="bindOpenModalTap" data-box="other" class="query-btn btn-bg"><text class="icon-unfold margin-right-xxs"></text>筛选</view>
+		</view>
+		<view class="main">
+			<view class="list">
+				<view class="item shadow-project" wx:for="{{dataList.list}}" wx:key="key" bindtap="url" data-url="../detail/cate_detail?id={{item._id}}">
+					<view class="left">
+						<view class="mark btn-bg">{{item.CATE_OBJ.cate}}</view>
+						<image class="loading" mode="aspectFill" lazy-load="{{true}}" src="{{item.CATE_OBJ.cover[0]}}" />
+					</view>
+				 
+					<view class="right">
+						<view class="line1 content-cut-one"> {{item.CATE_TITLE}} </view>
+						<view class="tag-list tag2">
+							<text class="tag-item tag-item{{idx}}" wx:for="{{item.CATE_OBJ.tag}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" wx:if="{{idx<3}}">{{itm}}</text>
+						</view>
+						<view class="line2 content-cut-one"><text class="icon-location"></text>{{item.CATE_ADDRESS_DETAIL}}</view>
+						<view class="line3 content-cut-one text-red">¥{{item.CATE_OBJ.rentmin}}~{{item.CATE_OBJ.rentmax}}元/月</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+		<!--load begin-->
+		<import src="../../../../../tpls/public/list_load_tpl.wxml" />
+		<template is="listLoadTpl" data="{{skin:'load-project',dataList}}" />
+		<!--load end-->
+
+	</cmpt-comm-list>
+
+	<!-- 对话窗口 begin -->
+	<view class="modal show" wx:if="{{showModal}}">
+		<view class="dialog">
+			<view class="bar bg-white justify-end" bindtap="bindHideModalTap">
+				<view class="content">
+					<text wx:if="{{showBox=='other'}}">条件筛选</text>
+					<text wx:elif="{{showBox=='area'}}">区域筛选</text>
+					<text wx:elif="{{showBox=='type'}}">户型筛选</text>
+				</view>
+				<view class="action">
+					<text class="icon-close text-red text-bold"></text>
+				</view>
+			</view>
+
+			<block wx:if="{{showBox=='area'}}">
+				<view class="query">
+					<view class="title">区域（可多选）</view>
+					<view class="tag-list">
+						<text bind:tap="bindAreaTap" class="tag-item {{tools.includes(area,itm)?'bg-orange':''}}" wx:for="{{projectSetting.AREA}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-area="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+			</block>
+
+			<block wx:if="{{showBox=='type'}}">
+				<view class="query">
+					<view class="title">户型（可多选）</view>
+					<view class="tag-list">
+						<text bind:tap="bindTypeTap" class="tag-item  {{tools.includes(type,itm)?'bg-orange':''}}" wx:for="{{projectSetting.CATE_TYPE}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-type="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+			</block>
+
+			<block wx:if="{{showBox=='other'}}">
+				<view class="query">
+					<view class="title">分类（可多选）</view>
+					<view class="tag-list tag2">
+						<text bind:tap="bindCateTap" class="tag-item tag-item{{idx}} {{tools.includes(cate,itm)?'bg-orange':''}}" wx:for="{{projectSetting.CATE_CATE}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-cate="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+
+				<view class="query">
+					<view class="title">地铁（可多选）</view>
+					<view class="tag-list tag2">
+						<text bind:tap="bindLineTap" class="tag-item tag-item{{idx}} {{tools.includes(line,itm)?'bg-orange':''}}" wx:for="{{projectSetting.CATE_LINE}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-line="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+
+				<view class="query">
+					<view class="title">标签（可多选）</view>
+					<view class="tag-list tag1">
+						<text bind:tap="bindTagTap" class="tag-item tag-item{{idx}} {{tools.includes(tag,itm)?'bg-orange':''}}" wx:for="{{projectSetting.CATE_TAG}}" wx:key="k" wx:for-item="itm" wx:for-index="idx" data-tag="{{itm}}">{{itm}}</text>
+					</view>
+				</view>
+
+				<view class="query">
+					<view class="title">租金价格</view>
+				</view>
+				<view class="price-container">
+					<view class="title">¥{{rentMin}} ~ ¥{{rentMax}}</view>
+					<slider class="slider" min="0" max="{{rentMax}}" step="100" value="0" bindchanging="onSliderChange" active-color="#ccc" block-size="28" color="#c30" value="{{rentMin}}" block-size="20" block-color="#FF6E00" />
+					<view class="hint">
+						<view>¥0</view>
+						<view>¥{{rentMax}}</view>
+					</view>
+				</view>
+			</block>
+			<view class="bar bg-white justify-end">
+				<view class="action">
+					<button class="btn big line-orange text-orange" bindtap="bindResetModalTap">重置</button>
+					<button class="btn big bg-orange margin-left  btn-bg" bindtap="bindQueryModalTap">筛选</button>
+
+				</view>
+			</view>
+
+			<view style="height: 100rpx;"></view>
+		</view>
+	</view>
+	<!-- 对话窗口 end -->
+
+
+	<block wx:if="{{skin.IS_SUB}}">
+		<import src="../../tpls/menu_tpl.wxml" />
+		<template is="menuTpl" data="{{curMenu:'cate_index',returnHome:false}}" />
+	</block>
+
+</block>

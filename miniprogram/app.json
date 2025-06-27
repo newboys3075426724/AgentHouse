@@ -1,0 +1,110 @@
+{
+	"pages": [
+		"projects/agenthouse/pages/default/index/default_index",
+		"projects/agenthouse/pages/cate/index/cate_index",
+		"projects/agenthouse/pages/product/index/product_index",
+		"projects/agenthouse/pages/about/index/about_index",
+		"projects/agenthouse/pages/search/search",
+		"projects/agenthouse/pages/my/index/my_index",
+		"projects/agenthouse/pages/my/reg/my_reg",
+		"projects/agenthouse/pages/my/edit/my_edit",
+		"projects/agenthouse/pages/my/foot/my_foot",
+		"projects/agenthouse/pages/my/fav/my_fav",
+		"projects/agenthouse/pages/news/index/news_index",
+		"projects/agenthouse/pages/news/detail/news_detail",
+		"projects/agenthouse/pages/news/cate1/news_cate1",
+		"projects/agenthouse/pages/news/cate2/news_cate2",
+		"projects/agenthouse/pages/admin/news/list/admin_news_list",
+		"projects/agenthouse/pages/admin/news/add/admin_news_add",
+		"projects/agenthouse/pages/admin/news/edit/admin_news_edit",
+		"projects/agenthouse/pages/admin/setup/about/admin_setup_about",
+		"projects/agenthouse/pages/admin/setup/about_list/admin_setup_about_list",
+		"projects/agenthouse/pages/admin/setup/qr/admin_setup_qr",
+		"projects/agenthouse/pages/admin/index/home/admin_home",
+		"projects/agenthouse/pages/admin/index/login/admin_login",
+		"projects/agenthouse/pages/admin/content/admin_content",
+		"projects/agenthouse/pages/admin/mgr/log/admin_log_list",
+		"projects/agenthouse/pages/admin/mgr/edit/admin_mgr_edit",
+		"projects/agenthouse/pages/admin/mgr/list/admin_mgr_list",
+		"projects/agenthouse/pages/admin/mgr/add/admin_mgr_add",
+		"projects/agenthouse/pages/admin/mgr/pwd/admin_mgr_pwd",
+		"projects/agenthouse/pages/admin/user/list/admin_user_list",
+		"projects/agenthouse/pages/admin/user/detail/admin_user_detail",
+		"projects/agenthouse/pages/admin/user/export/admin_user_export",
+		"projects/agenthouse/pages/product/detail/product_detail",
+		"projects/agenthouse/pages/admin/product/list/admin_product_list",
+		"projects/agenthouse/pages/admin/product/add/admin_product_add",
+		"projects/agenthouse/pages/admin/product/edit/admin_product_edit",
+		"projects/agenthouse/pages/admin/cate/list/admin_cate_list",
+		"projects/agenthouse/pages/admin/cate/add/admin_cate_add",
+		"projects/agenthouse/pages/admin/cate/edit/admin_cate_edit",
+		"projects/agenthouse/pages/cate/detail/cate_detail",
+		"projects/agenthouse/pages/article/detail/article_detail",
+		"projects/agenthouse/pages/article/index/article_index",
+		"projects/agenthouse/pages/admin/article/list/admin_article_list",
+		"projects/agenthouse/pages/admin/article/add/admin_article_add",
+		"projects/agenthouse/pages/admin/article/edit/admin_article_edit",
+		"cmpts/public/form/form_set/field/form_set_field",
+		"cmpts/public/form/form_show/content/form_show_content",
+		"pages/test1/test1"
+	],
+	"window": {
+		"backgroundColor": "#f1f1f1",
+		"backgroundTextStyle": "dark",
+		"navigationBarBackgroundColor": "#FF6E00",
+		"navigationBarTitleText": "地产中介小程序",
+		"navigationBarTextStyle": "white"
+	},
+	"tabBar": {
+		"custom": false,
+		"backgroundColor": "#FFFFFF",
+		"color": "#999999",
+		"selectedColor": "#FF6E00",
+		"list": [
+			{
+				"pagePath": "projects/agenthouse/pages/default/index/default_index",
+				"text": "首页",
+				"iconPath": "/projects/agenthouse/images/tabbar/home.png",
+				"selectedIconPath": "/projects/agenthouse/images/tabbar/home_cur.png"
+			},
+			{
+				"pagePath": "projects/agenthouse/pages/cate/index/cate_index",
+				"text": "找小区",
+				"iconPath": "/projects/agenthouse/images/tabbar/cate.png",
+				"selectedIconPath": "/projects/agenthouse/images/tabbar/cate_cur.png"
+			},
+			{
+				"pagePath": "projects/agenthouse/pages/product/index/product_index",
+				"text": "找好房",
+				"iconPath": "/projects/agenthouse/images/tabbar/product.png",
+				"selectedIconPath": "/projects/agenthouse/images/tabbar/product_cur.png"
+			},
+			{
+				"pagePath": "projects/agenthouse/pages/article/index/article_index",
+				"text": "中介",
+				"iconPath": "/projects/agenthouse/images/tabbar/article.png",
+				"selectedIconPath": "/projects/agenthouse/images/tabbar/article_cur.png"
+			},
+			{
+				"pagePath": "projects/agenthouse/pages/my/index/my_index",
+				"text": "我的",
+				"iconPath": "/projects/agenthouse/images/tabbar/my.png",
+				"selectedIconPath": "/projects/agenthouse/images/tabbar/my_cur.png"
+			}
+		]
+	},
+	"requiredPrivateInfos": [
+		"chooseLocation"
+	],
+	"permission": {
+		"scope.userLocation": {
+			"desc": "获取你当前位置信息用于小程序位置接口的效果展示"
+		}
+	},
+	"usingComponents": {
+		"cmpt-comm-list": "/cmpts/public/list/comm_list_cmpt",
+		"cmpt-picker": "/cmpts/public/picker/picker_cmpt",
+		"cmpt-modal": "/cmpts/public/modal/modal_cmpt"
+	},
+	"sitemapLocation": "sitemap.json"
+}

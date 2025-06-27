@@ -1,0 +1,103 @@
+@import "../../../style/skin.wxss";
+@import "../../cate/index/query.wxss";
+
+.main {
+	width: 100%;
+	padding: 20rpx;
+}
+
+
+.list {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.list .item {
+	width: calc((100% - 30rpx - 4rpx)/2);
+	margin-bottom: 30rpx;
+	border-radius: 20rpx;
+	height: 400rpx;
+	border-top-left-radius: 70rpx;
+	border-bottom-right-radius: 70rpx;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+}
+
+.list .item .mark {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: var(--orange);
+	font-size: 22rpx;
+	color: #fff;
+	border-top-right-radius: 20rpx;
+	border-bottom-left-radius: 12rpx;
+	opacity: .7;
+	padding: 4rpx 10rpx;
+}
+
+.list .item:nth-child(odd) {
+	margin-right: 30rpx;
+}
+
+.list .item image {
+	height: inherit;
+	width: 100%;
+	border-top-left-radius: 70rpx;
+	border-top-right-radius: 20rpx;
+}
+
+.list .item .detail {
+	width: 100%;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	padding: 6rpx 0;
+}
+
+.list .item .detail .line1 {
+	font-size: 26rpx;
+	font-weight: bold;
+	color: #333;
+	padding: 10rpx 10rpx;
+}
+
+.list .item .detail .line2 {
+	width: 100%;
+	display: flex;
+	padding: 10rpx 20rpx;
+	justify-content: space-between;
+}
+
+.list .item .detail .line2 .left {
+	border-radius: 10rpx;
+	padding: 4rpx 10rpx;
+	font-size: 22rpx;
+}
+
+.list .item .detail .line2 .right {
+	display: flex;
+	align-items: center;
+}
+
+.list .item .detail .line2 .right .m {
+	font-size: 20rpx;
+	color: var(--projectColor);
+	margin-top: -6rpx;
+}
+
+.list .item .detail .line2 .right .p {
+	font-size: 26rpx;
+	color: var(--projectColor);
+	font-weight: bold;
+}
+
+.list .item .detail .line2 .right .d {
+	font-size: 22rpx;
+	color: var(--projectColorLight);
+	margin-left: 4rpx;
+}
